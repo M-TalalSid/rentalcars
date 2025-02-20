@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { useState, useEffect } from "react";
 import { Input } from "@/components/ui/input";
@@ -9,52 +9,52 @@ import Link from "next/link";
 import type React from "react"; // Added import for React
 
 interface Car {
-  _id: string
-  name: string
-  brand: string
-  type: string
-  fuelCapacity: number
-  transmission: string
-  seatingCapacity: number
-  pricePerDay: number
-  originalPrice: number
-  imageUrl: string
+  _id: string;
+  name: string;
+  brand: string;
+  type: string;
+  fuelCapacity: number;
+  transmission: string;
+  seatingCapacity: number;
+  pricePerDay: number;
+  originalPrice: number;
+  imageUrl: string;
 }
 
 interface SearchResult {
-  cars: Car[]
+  cars: Car[];
 }
 
 function CarSearchBar({ cars }: { cars: Car[] }) {
-  const [query, setQuery] = useState("")
-  const [result, setResult] = useState<SearchResult | null>(null)
-  const [isFocused, setIsFocused] = useState(false)
-  const [selectedCar, setSelectedCar] = useState<Car | null>(null)
-  const debouncedQuery = useDebounce(query, 200)
+  const [query, setQuery] = useState("");
+  const [result, setResult] = useState<SearchResult | null>(null);
+  const [isFocused, setIsFocused] = useState(false);
+  const [selectedCar, setSelectedCar] = useState<Car | null>(null);
+  const debouncedQuery = useDebounce(query, 200);
 
   useEffect(() => {
     if (!isFocused) {
-      setResult(null)
-      return
+      setResult(null);
+      return;
     }
 
     if (!debouncedQuery) {
-      setResult(null) // Show first 5 cars when no query
-      return
+      setResult(null); // Show first 5 cars when no query
+      return;
     }
 
-    const normalizedQuery = debouncedQuery.toLowerCase().trim()
+    const normalizedQuery = debouncedQuery.toLowerCase().trim();
     const filteredCars = cars.filter((car) => {
-      const searchableText = `${car.name} ${car.brand} ${car.type}`.toLowerCase()
-      return searchableText.includes(normalizedQuery)
-    })
+      const searchableText = `${car.name} ${car.brand} ${car.type}`.toLowerCase();
+      return searchableText.includes(normalizedQuery);
+    });
 
-    setResult({ cars: filteredCars.slice(0, 5) }) // Limit to 5 results
-  }, [debouncedQuery, isFocused, cars])
+    setResult({ cars: filteredCars.slice(0, 5) }); // Limit to 5 results
+  }, [debouncedQuery, isFocused, cars]);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setQuery(e.target.value)
-  }
+    setQuery(e.target.value);
+  };
 
   const container = {
     hidden: { opacity: 0, height: 0 },
@@ -80,7 +80,7 @@ function CarSearchBar({ cars }: { cars: Car[] }) {
         },
       },
     },
-  }
+  };
 
   const item = {
     hidden: { opacity: 0, y: 20 },
@@ -98,18 +98,18 @@ function CarSearchBar({ cars }: { cars: Car[] }) {
         duration: 0.2,
       },
     },
-  }
+  };
 
   const handleFocus = () => {
-    setSelectedCar(null)
-    setIsFocused(true)
-  }
+    setSelectedCar(null);
+    setIsFocused(true);
+  };
 
   return (
     <div className="w-full max-w-xl mx-auto">
       <div className="relative flex flex-col justify-start items-center min-h-[300px]">
         <div className="w-full max-w-sm sticky top-0 bg-background z-10 pt-4 pb-1">
-          <label className="text-xs font-medium text-gray-500 dark:text-gray-400 mb-1 block" htmlFor="search">
+          <label className="text-sm font-medium text-gray-500 dark:text-gray-400 mb-1 block" htmlFor="search">
             Search Cars
           </label>
           <div className="relative">
@@ -120,7 +120,8 @@ function CarSearchBar({ cars }: { cars: Car[] }) {
               onChange={handleInputChange}
               onFocus={handleFocus}
               onBlur={() => setTimeout(() => setIsFocused(false), 200)}
-              className="pl-3 pr-9 py-1.5 h-9 text-sm rounded-lg focus-visible:ring-offset-0"
+              className="pl-3 pr-9 py-1.5 h-9 text-md rounded-lg focus-visible:ring-offset-0"
+              aria-label="Search for a car"
             />
             <div className="absolute right-3 top-1/2 -translate-y-1/2 h-4 w-4">
               <Search className="w-4 h-4 text-gray-400 dark:text-gray-500" />
@@ -167,8 +168,7 @@ function CarSearchBar({ cars }: { cars: Car[] }) {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default CarSearchBar
-
+export default CarSearchBar;

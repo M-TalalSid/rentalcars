@@ -38,16 +38,16 @@ export default function Profile() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-50 to-purple-50 dark:bg-gradient-to-r dark:from-gray-900 dark:to-gray-800">
-      <motion.div
+    <main className="min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-50 to-purple-50 dark:bg-gradient-to-r dark:from-gray-900 dark:to-gray-800">
+      <motion.section
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="max-w-md w-full space-y-8 p-8 bg-white dark:bg-gray-800 rounded-xl shadow-2xl"
+        className="max-w-md w-full space-y-8 p-8 bg-white dark:bg-gray-800 rounded-xl shadow-2xl border-2 border-transparent hover:border-gradient-to-r hover:from-blue-500 hover:to-purple-500"
       >
-        <h2 className="mt-6 text-4xl font-bold text-center text-gray-900 dark:text-white">
+        <h1 className="mt-6 text-4xl font-bold text-center text-gray-900 dark:text-white">
           Your Profile
-        </h2>
+        </h1>
         <div className="mt-8 space-y-6">
           <div className="flex justify-center">
             <Image
@@ -56,6 +56,7 @@ export default function Profile() {
               width={120}
               height={120}
               className="rounded-full border-4 border-blue-500"
+              priority // Prioritize loading the profile image
             />
           </div>
           <div className="text-center">
@@ -71,12 +72,13 @@ export default function Profile() {
               onClick={handleLogout}
               disabled={isLoading}
               className="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all duration-200"
+              aria-label="Log out"
             >
               {isLoading ? <Spinner /> : "Log out"}
             </button>
           </div>
         </div>
-      </motion.div>
-    </div>
+      </motion.section>
+    </main>
   );
 }

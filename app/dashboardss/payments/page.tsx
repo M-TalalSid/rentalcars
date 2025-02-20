@@ -52,6 +52,7 @@ export default function PaymentsPage() {
     email: "",
     status: "pending",
   });
+  
   const [filterStatus, setFilterStatus] = useState("all");
 
   const addPayment = () => {

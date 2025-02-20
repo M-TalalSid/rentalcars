@@ -28,24 +28,24 @@ interface AnalyticsProps {
 export function Analytics({ data }: AnalyticsProps) {
   return (
     <Tabs defaultValue="daily" className="space-y-4">
-      <TabsList>
-        <TabsTrigger value="daily">Daily</TabsTrigger>
-        <TabsTrigger value="weekly">Weekly</TabsTrigger>
-        <TabsTrigger value="monthly">Monthly</TabsTrigger>
+      <TabsList className="bg-white dark:bg-gray-800">
+        <TabsTrigger value="daily" className="text-gray-800 dark:text-gray-100">Daily</TabsTrigger>
+        <TabsTrigger value="weekly" className="text-gray-800 dark:text-gray-100">Weekly</TabsTrigger>
+        <TabsTrigger value="monthly" className="text-gray-800 dark:text-gray-100">Monthly</TabsTrigger>
       </TabsList>
       <TabsContent value="daily" className="space-y-4">
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-2">
-          <Card>
+          <Card className="bg-white dark:bg-gray-800">
             <CardHeader>
-              <CardTitle>Daily Sales</CardTitle>
-              <CardDescription>Your Daily Sales Performance</CardDescription>
+              <CardTitle className="text-gray-800 dark:text-gray-100">Daily Sales</CardTitle>
+              <CardDescription className="text-gray-600 dark:text-gray-400">Your Daily Sales Performance</CardDescription>
             </CardHeader>
             <CardContent className="h-[300px]">
               <ResponsiveContainer width="100%" height="100%">
                 <LineChart data={data.daily}>
-                  <XAxis dataKey="date" />
-                  <YAxis />
-                  <Tooltip />
+                  <XAxis dataKey="date" stroke="#888888" />
+                  <YAxis stroke="#888888" />
+                  <Tooltip contentStyle={{ backgroundColor: '#ffffff', borderColor: '#e5e7eb', color: '#000000' }} />
                   <Line
                     type="monotone"
                     dataKey="sales"
@@ -56,17 +56,17 @@ export function Analytics({ data }: AnalyticsProps) {
               </ResponsiveContainer>
             </CardContent>
           </Card>
-          <Card>
+          <Card className="bg-white dark:bg-gray-800">
             <CardHeader>
-              <CardTitle>Daily Visitors</CardTitle>
-              <CardDescription>Your Daily Visitor Count</CardDescription>
+              <CardTitle className="text-gray-800 dark:text-gray-100">Daily Visitors</CardTitle>
+              <CardDescription className="text-gray-600 dark:text-gray-400">Your Daily Visitor Count</CardDescription>
             </CardHeader>
             <CardContent className="h-[300px]">
               <ResponsiveContainer width="100%" height="100%">
                 <LineChart data={data.daily}>
-                  <XAxis dataKey="date" />
-                  <YAxis />
-                  <Tooltip />
+                  <XAxis dataKey="date" stroke="#888888" />
+                  <YAxis stroke="#888888" />
+                  <Tooltip contentStyle={{ backgroundColor: '#ffffff', borderColor: '#e5e7eb', color: '#000000' }} />
                   <Line
                     type="monotone"
                     dataKey="visitors"
@@ -81,17 +81,17 @@ export function Analytics({ data }: AnalyticsProps) {
       </TabsContent>
       <TabsContent value="weekly" className="space-y-4">
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-2">
-          <Card>
+          <Card className="bg-white dark:bg-gray-800">
             <CardHeader>
-              <CardTitle>Weekly Sales</CardTitle>
-              <CardDescription>Your weekly sales performance</CardDescription>
+              <CardTitle className="text-gray-800 dark:text-gray-100">Weekly Sales</CardTitle>
+              <CardDescription className="text-gray-600 dark:text-gray-400">Your weekly sales performance</CardDescription>
             </CardHeader>
             <CardContent className="h-[300px]">
               <ResponsiveContainer width="100%" height="100%">
                 <LineChart data={data.weekly}>
-                  <XAxis dataKey="date" />
-                  <YAxis />
-                  <Tooltip />
+                  <XAxis dataKey="date" stroke="#888888" />
+                  <YAxis stroke="#888888" />
+                  <Tooltip contentStyle={{ backgroundColor: '#ffffff', borderColor: '#e5e7eb', color: '#000000' }} />
                   <Line
                     type="monotone"
                     dataKey="sales"
@@ -102,17 +102,17 @@ export function Analytics({ data }: AnalyticsProps) {
               </ResponsiveContainer>
             </CardContent>
           </Card>
-          <Card>
+          <Card className="bg-white dark:bg-gray-800">
             <CardHeader>
-              <CardTitle>Weekly Visitors</CardTitle>
-              <CardDescription>Your weekly visitor count</CardDescription>
+              <CardTitle className="text-gray-800 dark:text-gray-100">Weekly Visitors</CardTitle>
+              <CardDescription className="text-gray-600 dark:text-gray-400">Your weekly visitor count</CardDescription>
             </CardHeader>
             <CardContent className="h-[300px]">
               <ResponsiveContainer width="100%" height="100%">
                 <LineChart data={data.weekly}>
-                  <XAxis dataKey="date" />
-                  <YAxis />
-                  <Tooltip />
+                  <XAxis dataKey="date" stroke="#888888" />
+                  <YAxis stroke="#888888" />
+                  <Tooltip contentStyle={{ backgroundColor: '#ffffff', borderColor: '#e5e7eb', color: '#000000' }} />
                   <Line
                     type="monotone"
                     dataKey="visitors"
@@ -127,17 +127,17 @@ export function Analytics({ data }: AnalyticsProps) {
       </TabsContent>
       <TabsContent value="monthly" className="space-y-4">
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-2">
-          <Card>
+          <Card className="bg-white dark:bg-gray-800">
             <CardHeader>
-              <CardTitle>Monthly Sales</CardTitle>
-              <CardDescription>Your monthly sales performance</CardDescription>
+              <CardTitle className="text-gray-800 dark:text-gray-100">Monthly Sales</CardTitle>
+              <CardDescription className="text-gray-600 dark:text-gray-400">Your monthly sales performance</CardDescription>
             </CardHeader>
             <CardContent className="h-[300px]">
               <ResponsiveContainer width="100%" height="100%">
                 <LineChart data={data.monthly}>
-                  <XAxis dataKey="date" />
-                  <YAxis />
-                  <Tooltip />
+                  <XAxis dataKey="date" stroke="#888888" />
+                  <YAxis stroke="#888888" />
+                  <Tooltip contentStyle={{ backgroundColor: '#ffffff', borderColor: '#e5e7eb', color: '#000000' }} />
                   <Line
                     type="monotone"
                     dataKey="sales"
@@ -148,17 +148,17 @@ export function Analytics({ data }: AnalyticsProps) {
               </ResponsiveContainer>
             </CardContent>
           </Card>
-          <Card>
+          <Card className="bg-white dark:bg-gray-800">
             <CardHeader>
-              <CardTitle>Monthly Visitors</CardTitle>
-              <CardDescription>Your monthly Visitor Count </CardDescription>
+              <CardTitle className="text-gray-800 dark:text-gray-100">Monthly Visitors</CardTitle>
+              <CardDescription className="text-gray-600 dark:text-gray-400">Your monthly Visitor Count</CardDescription>
             </CardHeader>
             <CardContent className="h-[300px]">
               <ResponsiveContainer width="100%" height="100%">
                 <LineChart data={data.monthly}>
-                  <XAxis dataKey="date" />
-                  <YAxis />
-                  <Tooltip />
+                  <XAxis dataKey="date" stroke="#888888" />
+                  <YAxis stroke="#888888" />
+                  <Tooltip contentStyle={{ backgroundColor: '#ffffff', borderColor: '#e5e7eb', color: '#000000' }} />
                   <Line
                     type="monotone"
                     dataKey="visitors"

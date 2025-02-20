@@ -27,6 +27,8 @@ export default function Login() {
     } catch (error) {
       console.error("Login error:", error); // Log the error
       toast.error("Login failed. Please check your credentials.");
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -37,20 +39,22 @@ export default function Login() {
     } catch (error) {
       console.error("Google login error:", error); // Log the error
       toast.error("Google login failed. Please try again.");
+    } finally {
+      setIsLoading(false);
     }
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-50 to-purple-50 dark:bg-gradient-to-r dark:from-gray-900 dark:to-gray-800">
-      <motion.div
+    <main className="min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-50 to-purple-50 dark:bg-gradient-to-r dark:from-gray-900 dark:to-gray-800">
+      <motion.section
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="max-w-md w-full space-y-8 p-8 bg-white dark:bg-gray-800 rounded-xl shadow-2xl"
+        className="max-w-md w-full space-y-8 p-8 bg-white dark:bg-gray-800 rounded-xl shadow-2xl border-2 border-transparent hover:border-gradient-to-r hover:from-blue-500 hover:to-purple-500"
       >
-        <h2 className="mt-6 text-4xl font-bold text-center text-gray-900 dark:text-white">
+        <h1 className="mt-6 text-4xl font-bold text-center text-gray-900 dark:text-white">
           Welcome Back
-        </h2>
+        </h1>
         <p className="mt-2 text-center text-gray-600 dark:text-gray-400">
           Log in to your account to continue
         </p>
@@ -91,6 +95,7 @@ export default function Login() {
                 type="button"
                 onClick={() => setShowPassword(!showPassword)}
                 className="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300"
+                aria-label={showPassword ? "Hide password" : "Show password"}
               >
                 {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
               </button>
@@ -134,10 +139,10 @@ export default function Login() {
             href="/signup"
             className="font-medium text-blue-600 dark:text-blue-400 hover:text-blue-500 dark:hover:text-purple-300 transition-all duration-200"
           >
-            Dont have an account? Sign up
+            Don't have an account? Sign up
           </Link>
         </div>
-      </motion.div>
-    </div>
+      </motion.section>
+    </main>
   );
 }

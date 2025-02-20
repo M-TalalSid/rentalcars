@@ -28,6 +28,13 @@
       }
     ],
     "typescript-config/consistent-casing": "off",
-    "no-inline-styles": "off"
+    "no-inline-styles": "off",
+    "detect-css-reflows/composite": "off",
+    "axe/aria": [
+      "default",
+      {
+        "aria-valid-attr-value": "off"
+      }
+    ]
   }
 }

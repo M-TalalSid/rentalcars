@@ -32,16 +32,16 @@ export default function SettingsPage() {
   };
 
   return (
-    <div className="space-y-6">
-      <h2 className="text-3xl font-bold text-white">Settings</h2>
+    <div className="space-y-6 p-6 bg-gray-100 dark:bg-gray-900">
+      <h2 className="text-3xl font-bold text-gray-800 dark:text-gray-100">Settings</h2>
       <Tabs defaultValue="account" className="space-y-4">
-        <TabsList>
-          <TabsTrigger value="account">Account</TabsTrigger>
-          <TabsTrigger value="appearance">Appearance</TabsTrigger>
-          <TabsTrigger value="notifications">Notifications</TabsTrigger>
+        <TabsList className="bg-white dark:bg-gray-800">
+          <TabsTrigger value="account" className="text-gray-800 dark:text-gray-100">Account</TabsTrigger>
+          <TabsTrigger value="appearance" className="text-gray-800 dark:text-gray-100">Appearance</TabsTrigger>
+          <TabsTrigger value="notifications" className="text-gray-800 dark:text-gray-100">Notifications</TabsTrigger>
         </TabsList>
         <TabsContent value="account">
-          <Card className="bg-gray-800 text-white">
+          <Card className="bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-100">
             <CardHeader>
               <CardTitle>Account Settings</CardTitle>
             </CardHeader>
@@ -53,7 +53,7 @@ export default function SettingsPage() {
                   type="email"
                   value={settings.email}
                   onChange={(e) => handleChange("email", e.target.value)}
-                  className="bg-gray-700 text-white"
+                  className="bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-100"
                 />
               </div>
               <div className="space-y-2">
@@ -63,7 +63,7 @@ export default function SettingsPage() {
                   type="password"
                   value={settings.password}
                   onChange={(e) => handleChange("password", e.target.value)}
-                  className="bg-gray-700 text-white"
+                  className="bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-100"
                 />
               </div>
               <div className="flex items-center justify-between">
@@ -83,7 +83,7 @@ export default function SettingsPage() {
           </Card>
         </TabsContent>
         <TabsContent value="appearance">
-          <Card className="bg-gray-800 text-white">
+          <Card className="bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-100">
             <CardHeader>
               <CardTitle>Appearance Settings</CardTitle>
             </CardHeader>
@@ -104,7 +104,7 @@ export default function SettingsPage() {
                   value={settings.language}
                   onValueChange={(value: string) => handleChange("language", value)}
                 >
-                  <SelectTrigger className="w-full bg-gray-700 text-white">
+                  <SelectTrigger className="w-full bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-100">
                     <SelectValue placeholder="Select language" />
                   </SelectTrigger>
                   <SelectContent>
@@ -120,7 +120,7 @@ export default function SettingsPage() {
                   value={settings.timezone}
                   onValueChange={(value: string) => handleChange("timezone", value)}
                 >
-                  <SelectTrigger className="w-full bg-gray-700 text-white">
+                  <SelectTrigger className="w-full bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-100">
                     <SelectValue placeholder="Select timezone" />
                   </SelectTrigger>
                   <SelectContent>
@@ -137,7 +137,7 @@ export default function SettingsPage() {
           </Card>
         </TabsContent>
         <TabsContent value="notifications">
-          <Card className="bg-gray-800 text-white">
+          <Card className="bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-100">
             <CardHeader>
               <CardTitle>Notification Settings</CardTitle>
             </CardHeader>
@@ -157,15 +157,15 @@ export default function SettingsPage() {
                 <div className="space-y-2">
                   <div className="flex items-center space-x-2">
                     <Checkbox id="email-notif" />
-                    <label htmlFor="email-notif">Email Notifications</label>
+                    <label htmlFor="email-notif" className="text-gray-800 dark:text-gray-100">Email Notifications</label>
                   </div>
                   <div className="flex items-center space-x-2">
                     <Checkbox id="push-notif" />
-                    <label htmlFor="push-notif">Push Notifications</label>
+                    <label htmlFor="push-notif" className="text-gray-800 dark:text-gray-100">Push Notifications</label>
                   </div>
                   <div className="flex items-center space-x-2">
                     <Checkbox id="sms-notif" />
-                    <label htmlFor="sms-notif">SMS Notifications</label>
+                    <label htmlFor="sms-notif" className="text-gray-800 dark:text-gray-100">SMS Notifications</label>
                   </div>
                 </div>
               </div>

@@ -29,7 +29,6 @@ export default async function Home() {
       <main className="-mb-24">
       <CarSearchBar cars={cars}/>
       </main>
-
       <HeroSection />
       <PickDrop />
       <CarCardCarousel />

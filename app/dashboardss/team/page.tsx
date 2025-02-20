@@ -91,19 +91,19 @@ export default function TeamPage() {
   );
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 p-6 bg-gray-100 dark:bg-gray-900">
       <div className="flex justify-between items-center">
-        <h2 className="text-3xl font-bold text-white">Team Members</h2>
+        <h2 className="text-3xl font-bold text-gray-800 dark:text-gray-100">Team Members</h2>
         <Input
           placeholder="Search team members..."
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
-          className="max-w-xs bg-gray-800 text-white"
+          className="max-w-xs bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-100"
         />
       </div>
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {filteredTeam.map((member) => (
-          <Card key={member.id} className="bg-gray-800 text-white">
+          <Card key={member.id} className="bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-100">
             <CardHeader className="flex flex-row items-center space-x-4 pb-2">
               <Avatar>
                 <AvatarImage src={member.profilePictureUrl} alt={member.name} />
@@ -116,7 +116,7 @@ export default function TeamPage() {
               </Avatar>
               <div>
                 <CardTitle>{member.name}</CardTitle>
-                <p className="text-sm text-gray-400">{member.role}</p>
+                <p className="text-sm text-gray-500 dark:text-gray-400">{member.role}</p>
               </div>
             </CardHeader>
             <CardContent>
@@ -136,7 +136,7 @@ export default function TeamPage() {
             Add Team Member
           </Button>
         </DialogTrigger>
-        <DialogContent className="bg-gray-800 text-white">
+        <DialogContent className="bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-100">
           <DialogHeader>
             <DialogTitle>Add New Team Member</DialogTitle>
             <DialogDescription>
@@ -154,7 +154,7 @@ export default function TeamPage() {
                 onChange={(e) =>
                   setNewMember({ ...newMember, name: e.target.value })
                 }
-                className="col-span-3 bg-gray-700 text-white"
+                className="col-span-3 bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-100"
               />
             </div>
             <div className="grid grid-cols-4 items-center gap-4">
@@ -167,7 +167,7 @@ export default function TeamPage() {
                 onChange={(e) =>
                   setNewMember({ ...newMember, role: e.target.value })
                 }
-                className="col-span-3 bg-gray-700 text-white"
+                className="col-span-3 bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-100"
               />
             </div>
             <div className="grid grid-cols-4 items-center gap-4">
@@ -181,7 +181,7 @@ export default function TeamPage() {
                 onChange={(e) =>
                   setNewMember({ ...newMember, email: e.target.value })
                 }
-                className="col-span-3 bg-gray-700 text-white"
+                className="col-span-3 bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-100"
               />
             </div>
             <div className="grid grid-cols-4 items-center gap-4">
@@ -194,7 +194,7 @@ export default function TeamPage() {
                   setNewMember({ ...newMember, status: value as string })
                 }
               >
-                <SelectTrigger className="col-span-3 bg-gray-700 text-white">
+                <SelectTrigger className="col-span-3 bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-100">
                   <SelectValue placeholder="Select status" />
                 </SelectTrigger>
                 <SelectContent>

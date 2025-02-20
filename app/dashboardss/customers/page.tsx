@@ -65,6 +65,7 @@ export default function CustomersPage() {
           <Button
             variant="ghost"
             onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+            className="text-gray-800 dark:text-gray-100"
           >
             Name
             <ArrowUpDown className="ml-2 h-4 w-4" />
@@ -104,21 +105,24 @@ export default function CustomersPage() {
                 <MoreHorizontal className="h-4 w-4" />
               </Button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent align="end">
-              <DropdownMenuLabel>Actions</DropdownMenuLabel>
+            <DropdownMenuContent align="end" className="bg-white dark:bg-gray-800">
+              <DropdownMenuLabel className="text-gray-800 dark:text-gray-100">Actions</DropdownMenuLabel>
               <DropdownMenuItem
                 onClick={() => navigator.clipboard.writeText(customer.id)}
+                className="text-gray-800 dark:text-gray-100"
               >
                 Copy Customer ID
               </DropdownMenuItem>
               <DropdownMenuSeparator />
               <DropdownMenuItem
                 onClick={() => console.log("View customer", customer)}
+                className="text-gray-800 dark:text-gray-100"
               >
                 View Customer
               </DropdownMenuItem>
               <DropdownMenuItem
                 onClick={() => console.log("View order history", customer)}
+                className="text-gray-800 dark:text-gray-100"
               >
                 View Order History
               </DropdownMenuItem>
@@ -149,15 +153,18 @@ export default function CustomersPage() {
   }
 
   return (
-    <div className="flex flex-col gap-4">
+    <div className="flex flex-col gap-4 p-6 bg-gray-100 dark:bg-gray-900">
       <div className="flex items-center justify-between">
-        <h1 className="text-3xl font-bold">Customers</h1>
-        <Button onClick={() => console.log("Add Customer clicked")}>
+        <h1 className="text-3xl font-bold text-gray-800 dark:text-gray-100">Customers</h1>
+        <Button 
+          onClick={() => console.log("Add Customer clicked")}
+          className="bg-[#3563E9] text-white hover:bg-[#2952cc]"
+        >
           Add Customer
         </Button>
       </div>
 
-      <div className="rounded-md border">
+      <div className="rounded-md border border-gray-200 dark:border-gray-700">
         <div className="flex items-center justify-between p-4">
           <Input
             placeholder="Filter customers..."
@@ -165,15 +172,15 @@ export default function CustomersPage() {
             onChange={(event) =>
               table.getColumn("name")?.setFilterValue(event.target.value)
             }
-            className="max-w-sm"
+            className="max-w-sm bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-100"
           />
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button variant="outline" className="ml-auto">
+              <Button variant="outline" className="ml-auto bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-100">
                 Columns <ChevronDown className="ml-2 h-4 w-4" />
               </Button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent align="end">
+            <DropdownMenuContent align="end" className="bg-white dark:bg-gray-800">
               {table
                 .getAllColumns()
                 .filter((column) => column.getCanHide())
@@ -181,7 +188,7 @@ export default function CustomersPage() {
                   return (
                     <DropdownMenuCheckboxItem
                       key={column.id}
-                      className="capitalize"
+                      className="capitalize text-gray-800 dark:text-gray-100"
                       checked={column.getIsVisible()}
                       onCheckedChange={(value: unknown) =>
                         column.toggleVisibility(!!value)
@@ -197,10 +204,10 @@ export default function CustomersPage() {
         <Table>
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (
-              <TableRow key={headerGroup.id}>
+              <TableRow key={headerGroup.id} className="bg-gray-100 dark:bg-gray-800">
                 {headerGroup.headers.map((header) => {
                   return (
-                    <TableHead key={header.id}>
+                    <TableHead key={header.id} className="text-gray-800 dark:text-gray-100">
                       {header.isPlaceholder
                         ? null
                         : flexRender(
@@ -219,9 +226,10 @@ export default function CustomersPage() {
                 <TableRow
                   key={row.id}
                   data-state={row.getIsSelected() && "selected"}
+                  className="bg-white dark:bg-gray-800"
                 >
                   {row.getVisibleCells().map((cell) => (
-                    <TableCell key={cell.id}>
+                    <TableCell key={cell.id} className="text-gray-800 dark:text-gray-100">
                       {flexRender(
                         cell.column.columnDef.cell,
                         cell.getContext()
@@ -234,7 +242,7 @@ export default function CustomersPage() {
               <TableRow>
                 <TableCell
                   colSpan={columns.length}
-                  className="h-24 text-center"
+                  className="h-24 text-center text-gray-800 dark:text-gray-100"
                 >
                   No Results.
                 </TableCell>
@@ -243,7 +251,7 @@ export default function CustomersPage() {
           </TableBody>
         </Table>
         <div className="flex items-center justify-end space-x-2 p-4">
-          <div className="flex-1 text-sm text-muted-foreground">
+          <div className="flex-1 text-sm text-gray-800 dark:text-gray-100">
             {table.getFilteredRowModel().rows.length} of {data.length}{" "}
             customer(s)
           </div>
@@ -253,6 +261,7 @@ export default function CustomersPage() {
               size="sm"
               onClick={() => table.previousPage()}
               disabled={!table.getCanPreviousPage()}
+              className="bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-100"
             >
               Previous
             </Button>
@@ -261,6 +270,7 @@ export default function CustomersPage() {
               size="sm"
               onClick={() => table.nextPage()}
               disabled={!table.getCanNextPage()}
+              className="bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-100"
             >
               Next
             </Button>

@@ -20,6 +20,7 @@ async function getDashboardData() {
   }
   return res.json();
 }
+
 interface DashboardData {
   totalRevenue: number;
   subscriptions: {
@@ -66,11 +67,11 @@ export default function DashboardPage() {
   }
 
   return (
-    <div className="flex flex-col  gap-4">
+    <div className="flex flex-col gap-4 p-4 bg-gray-100 dark:bg-gray-900">
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-        <Card className="col-span-2 bg-gray-700">
+        <Card className="col-span-2 bg-white dark:bg-gray-800">
           <CardHeader>
-            <CardTitle>Total Revenue</CardTitle>
+            <CardTitle className="text-gray-800 dark:text-gray-100">Total Revenue</CardTitle>
           </CardHeader>
           <CardContent>
             <Suspense fallback={<Skeleton className="h-[200px] w-full" />}>
@@ -79,9 +80,9 @@ export default function DashboardPage() {
           </CardContent>
         </Card>
 
-        <Card className="col-span-2 bg-gray-700">
+        <Card className="col-span-2 bg-white dark:bg-gray-800">
           <CardHeader>
-            <CardTitle>Subscriptions</CardTitle>
+            <CardTitle className="text-gray-800 dark:text-gray-100">Subscriptions</CardTitle>
           </CardHeader>
           <CardContent>
             <Suspense fallback={<Skeleton className="h-[200px] w-full" />}>
@@ -92,27 +93,27 @@ export default function DashboardPage() {
       </div>
 
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-        <Card className="bg-gray-700">
+        <Card className="bg-white dark:bg-gray-800">
           <CardHeader>
-            <CardTitle>Team Members</CardTitle>
+            <CardTitle className="text-gray-800 dark:text-gray-100">Team Members</CardTitle>
           </CardHeader>
           <CardContent>
             <TeamMembers />
           </CardContent>
         </Card>
 
-        <Card className="bg-gray-700">
+        <Card className="bg-white dark:bg-gray-800">
           <CardHeader>
-            <CardTitle>Cookie Settings</CardTitle>
+            <CardTitle className="text-gray-800 dark:text-gray-100">Cookie Settings</CardTitle>
           </CardHeader>
           <CardContent>
             <CookieSettings data={dashboardData.cookieConsent} />
           </CardContent>
         </Card>
 
-        <Card className="bg-gray-700">
+        <Card className="bg-white dark:bg-gray-800">
           <CardHeader>
-            <CardTitle>Create Account</CardTitle>
+            <CardTitle className="text-gray-800 dark:text-gray-100">Create Account</CardTitle>
           </CardHeader>
           <CardContent>
             <CreateAccount />
@@ -121,9 +122,9 @@ export default function DashboardPage() {
       </div>
 
       <div className="grid gap-4 md:grid-cols-2">
-        <Card className="bg-gray-700">
+        <Card className="bg-white dark:bg-gray-800">
           <CardHeader>
-            <CardTitle>Payments</CardTitle>
+            <CardTitle className="text-gray-800 dark:text-gray-100">Payments</CardTitle>
           </CardHeader>
           <CardContent>
             <Suspense fallback={<Skeleton className="h-[400px] w-full" />}>
@@ -132,9 +133,9 @@ export default function DashboardPage() {
           </CardContent>
         </Card>
 
-        <Card className="bg-gray-700">
+        <Card className="bg-white dark:bg-gray-800">
           <CardHeader>
-            <CardTitle>Payment Method</CardTitle>
+            <CardTitle className="text-gray-800 dark:text-gray-100">Payment Method</CardTitle>
           </CardHeader>
           <CardContent>
             <PaymentMethod />
@@ -142,9 +143,9 @@ export default function DashboardPage() {
         </Card>
       </div>
 
-      <Card>
+      <Card className="bg-white dark:bg-gray-800">
         <CardHeader>
-          <CardTitle>Analytics</CardTitle>
+          <CardTitle className="text-gray-800 dark:text-gray-100">Analytics</CardTitle>
         </CardHeader>
         <CardContent>
           <Suspense fallback={<Skeleton className="h-[300px] w-full" />}>

@@ -10,7 +10,6 @@ import { CalendarIcon, CreditCard, Check } from "lucide-react";
 import { PayPalButtons } from "@paypal/react-paypal-js";
 import Image from "next/image";
 import { createRentalOrder } from "@/app/actions/rental-actions";
-
 import { Button } from "@/components/ui/button";
 import { Calendar } from "@/components/ui/calendar";
 import {

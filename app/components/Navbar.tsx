@@ -31,9 +31,9 @@ const Navbar = () => {
   if (!mounted) return null;
 
   return (
-    <nav className="max-w-[1440px] px-6 py-4 mx-auto bg-background flex items-center justify-between shadow-lg rounded-lg transition-all duration-200 relative">
+    <nav className="max-w-[1440px] px-6 py-4 mx-auto bg-white dark:bg-gray-800 flex items-center justify-between shadow-lg rounded-lg transition-all duration-200 relative">
       {/* Logo */}
-      <Link href="/" className="text-3xl font-bold text-[#3563E9] tracking-wide">
+      <Link href="/" className="text-3xl font-bold text-[#3563E9] dark:text-blue-400 tracking-wide">
         MORENT
       </Link>
 
@@ -41,12 +41,12 @@ const Navbar = () => {
       <div className="hidden md:flex items-center space-x-6">
         <button 
           onClick={handleNotificationIconClick} 
-          className="text-xl text-muted-foreground hover:text-primary transition duration-150"
+          className="text-xl text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition duration-150"
           aria-label="Notifications"
         >
           <AiOutlineBell />
         </button>
-        <Link href="/help-center" className="flex items-center text-muted-foreground hover:text-primary transition duration-150">
+        <Link href="/help-center" className="flex items-center text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition duration-150">
           <FaQuestion className="mr-2" /> Help Center
         </Link>
         {user ? (
@@ -56,11 +56,11 @@ const Navbar = () => {
               alt="Profile"
               width={44}
               height={44}
-              className="w-11 h-11 rounded-full object-cover border-2 border-primary hover:scale-105 transition duration-150"
+              className="w-11 h-11 rounded-full object-cover border-2 border-blue-500 dark:border-blue-400 hover:scale-105 transition duration-150"
             />
           </Link>
         ) : (
-          <Link href="/login" className="text-primary hover:text-primary-dark transition duration-150">
+          <Link href="/login" className="text-blue-500 dark:text-blue-400 hover:text-blue-600 dark:hover:text-blue-500 transition duration-150">
             Login
           </Link>
         )}
@@ -72,7 +72,7 @@ const Navbar = () => {
       {/* Mobile Menu Button */}
       <button 
         onClick={toggleMenu} 
-        className="md:hidden text-2xl p-2"
+        className="md:hidden text-2xl p-2 text-gray-600 dark:text-gray-300"
         aria-label="Toggle Menu"
       >
         {menuOpen ? <AiOutlineClose /> : <AiOutlineMenu />}
@@ -86,23 +86,23 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       <div 
-        className={`fixed top-0 right-0 w-2/3 h-full bg-background shadow-lg transform ${menuOpen ? "translate-x-0" : "translate-x-full"} transition-transform duration-300 flex flex-col items-center justify-center space-y-6 md:hidden z-50`}
+        className={`fixed top-0 right-0 w-2/3 h-full bg-white dark:bg-gray-800 shadow-lg transform ${menuOpen ? "translate-x-0" : "translate-x-full"} transition-transform duration-300 flex flex-col items-center justify-center space-y-6 md:hidden z-50`}
       >
         {/* Close Button */}
         <button 
           onClick={toggleMenu}
-          className="absolute top-5 right-5 text-3xl"
+          className="absolute top-5 right-5 text-3xl text-gray-600 dark:text-gray-300"
         >
           <AiOutlineClose />
         </button>
 
         <button 
           onClick={handleNotificationIconClick} 
-          className="text-2xl text-muted-foreground hover:text-primary transition duration-150"
+          className="text-2xl text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition duration-150"
         >
           <AiOutlineBell />
         </button>
-        <Link href="/help-center" className="text-lg text-muted-foreground hover:text-primary transition duration-150 flex items-center" onClick={toggleMenu}>
+        <Link href="/help-center" className="text-lg text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition duration-150 flex items-center" onClick={toggleMenu}>
           <FaQuestion className="mr-2" /> Help Center
         </Link>
         {user ? (
@@ -112,11 +112,11 @@ const Navbar = () => {
               alt="Profile"
               width={50}
               height={50}
-              className="w-12 h-12 rounded-full border-2 border-primary hover:scale-105 transition duration-150"
+              className="w-12 h-12 rounded-full border-2 border-blue-500 dark:border-blue-400 hover:scale-105 transition duration-150"
             />
           </Link>
         ) : (
-          <Link href="/login" className="text-primary text-lg hover:text-primary-dark transition duration-150" onClick={toggleMenu}>
+          <Link href="/login" className="text-blue-500 dark:text-blue-400 text-lg hover:text-blue-600 dark:hover:text-blue-500 transition duration-150" onClick={toggleMenu}>
             Login
           </Link>
         )}

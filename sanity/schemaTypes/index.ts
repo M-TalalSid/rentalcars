@@ -2,7 +2,6 @@ import { type SchemaTypeDefinition } from 'sanity';
 import cars from './cars';
 import rental from './rental';
 
-
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [cars, rental],
 }
